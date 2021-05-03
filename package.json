@@ -1,0 +1,9 @@
+{
+  "name": "rails-chat-tutorial",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^5.36.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}

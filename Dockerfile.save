@@ -1,0 +1,16 @@
+FROM ruby:2.6.2-stretch
+COPY . /application
+WORKDIR /application
+
+# Install gems
+RUN bundle install
+ENV RAILS_ENV production
+#RUN curl -sL https://deb.nodesource.com/setup_14.x
+RUN bash -c "apt-get update"
+RUN bash -c "apt-get install build-essential checkinstall libssl-dev"
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.1/install.sh | bash
+#RUN bash -c "apt-get install -y nodejs"
+#RUN bash -c "apt-get install -y yarn"
+RUN bash -c "n
+RUN bundle exec rake webpacker:install
+ENTRYPOINT ["./entrypoint.sh"]
